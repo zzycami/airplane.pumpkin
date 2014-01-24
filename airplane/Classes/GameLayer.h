@@ -1,6 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 #include "PlaneLayer.h"
+#include "BulletLayer.h"
 
 USING_NS_CC;
 
@@ -19,4 +20,5 @@ private:
 	Sprite *background1;
 	Sprite *background2;
 	PlaneLayer* planeLayer;
+    BulletLayer* bulletLayer;
 };
