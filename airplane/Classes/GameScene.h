@@ -10,11 +10,8 @@ class GameScene :public Scene
 public:
 	GameScene(void);
 	~GameScene(void);
-
 	virtual bool init();
-
 	GameLayer *_gameLayer;
-
 	CREATE_FUNC(GameScene);
 };
 

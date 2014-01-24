@@ -13,4 +13,6 @@ public:
 	virtual bool init();
 	static PlaneLayer* create();
 	static PlaneLayer* sharedPlane;
+    void moveTo(Point location);
+    bool isAlive;
 };

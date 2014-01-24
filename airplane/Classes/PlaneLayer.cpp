@@ -3,7 +3,9 @@
 PlaneLayer* PlaneLayer::sharedPlane = NULL;
 
 PlaneLayer::PlaneLayer()
-{}
+{
+    isAlive = true;
+}
 
 PlaneLayer::~PlaneLayer()
 {}
@@ -45,4 +47,17 @@ bool PlaneLayer::init()
 		CC_SAFE_DELETE(pRet);
 		return NULL;
 	}
+}
+
+void PlaneLayer::moveTo(Point location)
+{
+    if(isAlive && !Director::getInstance()->isPaused()){
+        // make sure the location is not beyond the windows
+        Size winSize = Director::getInstance()->getWinSize();
+        location.x = (location.x < 0)?0:location.x;
+        location.x = (location.x > winSize.width)?winSize.width:location.x;
+        location.y = (location.y < 0)?0:location.y;
+        location.y = (location.y > winSize.height)?winSize.height:location.y;
+        this->getChildByTag(AIRPLANE)->setPosition(location);
+    }
 }

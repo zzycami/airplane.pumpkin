@@ -37,12 +37,18 @@ bool GameLayer::init()
         this->bulletLayer = BulletLayer::create();
         this->addChild(this->bulletLayer);
         this->bulletLayer->startShoot();
+        
+        auto dispatcher = Director::getInstance()->getEventDispatcher();
+        auto listener = EventListenerTouchAllAtOnce::create();
+        listener->onTouchesMoved = CC_CALLBACK_2(GameLayer::onTouchesMoved, this);
+        dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
 		this->schedule(schedule_selector(GameLayer::moveBackground), 0.01f);
 		return true;
 	}
 	return false;
 }
+
 
 void GameLayer::moveBackground(float dt)
 {
@@ -54,3 +60,25 @@ void GameLayer::moveBackground(float dt)
 		background1->setPositionY(0);
 	}
 }
+
+
+
+void GameLayer::onTouchesMoved(const std::vector<Touch*>& touches, Event *unused_event)
+{
+    if(planeLayer->isAlive){
+        Touch *touch = touches[0];
+        Point beginPoint = touch->getLocationInView();
+        beginPoint = Director::getInstance()->convertToGL(beginPoint);
+        
+        Point endPoint = touch->getPreviousLocationInView();
+        endPoint = Director::getInstance()->convertToGL(endPoint);
+        
+        Point offset = beginPoint - endPoint;
+        Point toPoint = planeLayer->getChildByTag(AIRPLANE)->getPosition() + offset;
+        planeLayer->moveTo(toPoint);
+    }
+}
+
+
+
+

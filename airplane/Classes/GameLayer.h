@@ -10,10 +10,9 @@ class GameLayer:public Layer
 public:
 	GameLayer();
 	~GameLayer();
-
 	CREATE_FUNC(GameLayer);
 	bool virtual init();
-
+    void virtual onTouchesMoved(const std::vector<Touch*>& touches, Event *unused_event);
 	void moveBackground(float dt);
 
 private:
