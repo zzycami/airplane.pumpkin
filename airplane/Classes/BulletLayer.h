@@ -10,7 +10,11 @@ public:
 	virtual bool init();
 	CREATE_FUNC(BulletLayer);
 	void addBullet(float dt);
-
+    void removeBullet(Sprite *bullet);
+    void startShoot(float delay = 0.0f);
+    void stopShoot();
 private:
 	SpriteBatchNode *bulletBatchNode;
+    void bulletMoveFinished(Node *sender);
+    Array *allBullet;
 };

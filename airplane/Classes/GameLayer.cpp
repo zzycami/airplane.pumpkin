@@ -32,6 +32,11 @@ bool GameLayer::init()
 		// Add the hero layer
 		this->planeLayer = PlaneLayer::create();
 		this->addChild(this->planeLayer);
+        
+        // Add the bullet to layer and start to shoot
+        this->bulletLayer = BulletLayer::create();
+        this->addChild(this->bulletLayer);
+        this->bulletLayer->startShoot();
 
 		this->schedule(schedule_selector(GameLayer::moveBackground), 0.01f);
 		return true;

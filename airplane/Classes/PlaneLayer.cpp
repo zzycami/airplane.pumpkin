@@ -12,8 +12,8 @@ bool PlaneLayer::init()
 {
 	if(Layer::init()){
 		// Add plane sprite
-		Size winSize = Director::sharedDirector()->getWinSize();
-		SpriteFrameCache::getInstance()->addSpriteFramesWithFile("ui/shoot.plist");
+		Size winSize = Director::getInstance()->getWinSize();
+		SpriteFrameCache::getInstance()->addSpriteFramesWithFile("shoot.plist");
 		Sprite *plane = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("hero1.png"));
 		plane->setPosition(winSize.width*0.5, plane->getContentSize().height*0.5);
 		this->addChild(plane,0,AIRPLANE);
