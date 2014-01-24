@@ -12,7 +12,7 @@ BulletLayer::~BulletLayer()
 bool BulletLayer::init()
 {
 	if(Layer::init()){
-		Texture2D *texture = TextureCache::getInstance()->textureForKey("ui/shoot.png");
+        Texture2D *texture = Director::getInstance()->getTextureCache()->getTextureForKey("shoot.png");
 		bulletBatchNode = SpriteBatchNode::createWithTexture(texture);
 		this->addChild(bulletBatchNode);
 		return true;

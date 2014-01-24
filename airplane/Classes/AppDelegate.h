@@ -32,6 +32,9 @@ public:
     @param  the pointer of the application
     */
     virtual void applicationWillEnterForeground();
+    
+private:
+    void setResourceSearchResolution();
 };
 
 #endif // _APP_DELEGATE_H_

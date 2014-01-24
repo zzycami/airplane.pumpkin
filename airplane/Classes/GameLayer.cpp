@@ -13,20 +13,20 @@ bool GameLayer::init()
 {
 	if(Layer::init()){
 		// Add backgrounds to cache
-		SpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/shoot_background.plist");
+		SpriteFrameCache::getInstance()->addSpriteFramesWithFile("shoot_background.plist");
 
 		// Load background 1
-		background1 = Sprite::createWithSpriteFrame(SpriteFrameCache::sharedSpriteFrameCache()->getSpriteFrameByName("background.png"));
-		background1->setAnchorPoint(ccp(0, 0));
-		background1->setPosition(ccp(0, 0));
+		background1 = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("background.png"));
+		background1->setAnchorPoint(Point(0, 0));
+		background1->setPosition(Point(0, 0));
 		background1->getTexture()->setAntiAliasTexParameters();
 		this->addChild(background1);
 
 		// Load background 2
-		background2 = Sprite::createWithSpriteFrame(SpriteFrameCache::sharedSpriteFrameCache()->getSpriteFrameByName("background.png"));
-		background2->setAnchorPoint(ccp(0, 0));
+		background2 = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("background.png"));
+		background2->setAnchorPoint(Point(0, 0));
 		background2->getTexture()->setAntiAliasTexParameters();
-		background2->setPosition(ccp(0, background2->getContentSize().height - 2));
+		background2->setPosition(Point(0, background2->getContentSize().height - 2));
 		this->addChild(background2);
 
 		// Add the hero layer

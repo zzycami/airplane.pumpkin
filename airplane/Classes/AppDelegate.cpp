@@ -17,7 +17,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto eglView = EGLView::getInstance();
 
     director->setOpenGLView(eglView);
-	eglView->setDesignResolutionSize(480, 800, kResolutionExactFit);
+	eglView->setDesignResolutionSize(480, 800, ResolutionPolicy::EXACT_FIT);
+    
+    // set resource load resolution
+    setResourceSearchResolution();
 	
     // turn on display FPS
 	director->setDisplayStats(false);
@@ -34,6 +37,19 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     return true;
 }
+
+void AppDelegate::setResourceSearchResolution()
+{
+    std::vector<std::string> paths;
+    paths.push_back("ui");
+    paths.push_back("ui/shoot");
+    paths.push_back("ui/shoot_background");
+    paths.push_back("font");
+    paths.push_back("fonts");
+    paths.push_back("sound");
+    FileUtils::getInstance()->setSearchResolutionsOrder(paths);
+}
+
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {
