@@ -38,6 +38,10 @@ bool GameLayer::init()
         this->addChild(this->bulletLayer);
         this->bulletLayer->startShoot();
         
+        // Add enemies
+        this->enemyLayer = EnemyLayer::create();
+        this->addChild(this->enemyLayer);
+        
         auto dispatcher = Director::getInstance()->getEventDispatcher();
         auto listener = EventListenerTouchAllAtOnce::create();
         listener->onTouchesMoved = CC_CALLBACK_2(GameLayer::onTouchesMoved, this);

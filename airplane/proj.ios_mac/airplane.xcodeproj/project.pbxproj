@@ -134,6 +134,8 @@
 		515FFE891892208600E44B87 /* PlaneLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 515FFE801892208600E44B87 /* PlaneLayer.cpp */; };
 		515FFE9318922CE100E44B87 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515FFE9218922CE100E44B87 /* OpenGLES.framework */; };
 		515FFE9518922CF400E44B87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515FFE9418922CF400E44B87 /* UIKit.framework */; };
+		51B5841718935E9E00B3DC52 /* EnemyLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51B5841618935E9E00B3DC52 /* EnemyLayer.cpp */; };
+		51B5841818935E9E00B3DC52 /* EnemyLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51B5841618935E9E00B3DC52 /* EnemyLayer.cpp */; };
 		51E11F8218926069006C92C4 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51E11F8118926069006C92C4 /* Enemy.cpp */; };
 		51E11F8318926069006C92C4 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51E11F8118926069006C92C4 /* Enemy.cpp */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -432,6 +434,8 @@
 		515FFE811892208600E44B87 /* PlaneLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaneLayer.h; path = ../Classes/PlaneLayer.h; sourceTree = "<group>"; };
 		515FFE9218922CE100E44B87 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		515FFE9418922CF400E44B87 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		51B5840F18935E8A00B3DC52 /* EnemyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyLayer.h; path = ../Classes/EnemyLayer.h; sourceTree = "<group>"; };
+		51B5841618935E9E00B3DC52 /* EnemyLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnemyLayer.cpp; path = ../Classes/EnemyLayer.cpp; sourceTree = "<group>"; };
 		51E11F8118926069006C92C4 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enemy.cpp; path = ../Classes/Enemy.cpp; sourceTree = "<group>"; };
 		51E11F8A18926081006C92C4 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = ../Classes/Enemy.h; sourceTree = "<group>"; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -522,6 +526,8 @@
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 				51E11F8118926069006C92C4 /* Enemy.cpp */,
+				51B5840F18935E8A00B3DC52 /* EnemyLayer.h */,
+				51B5841618935E9E00B3DC52 /* EnemyLayer.cpp */,
 				51E11F8A18926081006C92C4 /* Enemy.h */,
 			);
 			name = Classes;
@@ -816,7 +822,7 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = MDDB52YB8L;
+						DevelopmentTeam = 5G84ZNU4TR;
 					};
 				};
 			};
@@ -1059,6 +1065,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				51B5841718935E9E00B3DC52 /* EnemyLayer.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 				51E11F8218926069006C92C4 /* Enemy.cpp in Sources */,
@@ -1073,6 +1080,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				515FFE851892208600E44B87 /* GameLayer.cpp in Sources */,
+				51B5841818935E9E00B3DC52 /* EnemyLayer.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
 				515FFE831892208600E44B87 /* BulletLayer.cpp in Sources */,
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
@@ -1144,6 +1152,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -1164,6 +1173,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1175,6 +1185,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1193,6 +1204,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

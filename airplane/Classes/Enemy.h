@@ -15,7 +15,6 @@ class Enemy: public Node
 public:
     Enemy();
     ~Enemy();
-    virtual bool init();
     static Enemy* create();
     void bindSprite(Sprite* sprite, int life);
     Sprite* getSprite();

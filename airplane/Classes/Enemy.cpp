@@ -19,26 +19,16 @@ Enemy::~Enemy()
 
 Enemy* Enemy::create()
 {
-    Enemy *ret = new Enemy();
-    if (ret && ret->init()) {
-        ret->autorelease();
-        return ret;
-    }else {
-        CC_SAFE_DELETE(ret);
-        return NULL;
-    }
-}
-
-bool Enemy::init(){
-    if (Node::init()) {
-        return true;
-    }else {
-        return false;
-    }
+    Enemy *enemy = new Enemy();
+    enemy->autorelease();
+    return enemy;
 }
 
 void Enemy::bindSprite(Sprite* sprite, int life)
 {
+    this->sprite = sprite;
+    this->life = life;
+    this->addChild(sprite);
 }
 
 Sprite* Enemy::getSprite()
@@ -51,9 +41,14 @@ int Enemy::getLife()
     return life;
 }
 
-void Enemy::loseLife(){}
+void Enemy::loseLife()
+{
+    this->life --;
+}
 
 
 Rect Enemy::getBoundingBox(){
-    return NULL;
+    Rect rect = this->sprite->getBoundingBox();
+    Point point = this->convertToWorldSpace(rect.origin);
+    return Rect(point.x, point.y, rect.size.width, rect.size.height);
 }

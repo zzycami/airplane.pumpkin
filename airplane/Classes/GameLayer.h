@@ -2,6 +2,7 @@
 #include "cocos2d.h"
 #include "PlaneLayer.h"
 #include "BulletLayer.h"
+#include "EnemyLayer.h"
 
 USING_NS_CC;
 
@@ -20,4 +21,5 @@ private:
 	Sprite *background2;
 	PlaneLayer* planeLayer;
     BulletLayer* bulletLayer;
+    EnemyLayer* enemyLayer;
 };
