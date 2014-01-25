@@ -13,8 +13,8 @@ public:
     void removeBullet(Sprite *bullet);
     void startShoot(float delay = 0.0f);
     void stopShoot();
+    Array *allBullet;
 private:
 	SpriteBatchNode *bulletBatchNode;
     void bulletMoveFinished(Node *sender);
-    Array *allBullet;
 };

@@ -37,13 +37,13 @@ public:
     
     void addEnemy2(float dt);
     void enemy2MoveFinished(Node *sender);
-    void enemy2Blowup(Enemy enemy2);
+    void enemy2Blowup(Enemy *enemy2);
     void removeEnemy2(Node *sender);
     Array *allEnemy2;
     
     void addEnemy3(float dt);
     void enemy3MoveFinished(Node *sender);
-    void enemy3Blowup(Node *enemy3);
+    void enemy3Blowup(Enemy *enemy3);
     void removeEnemy3(Node *sender);
     Array *allEnemy3;
     

@@ -59,7 +59,7 @@ bool EnemyLayer::init()
         animation2->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("enemy2_down2.png"));
         animation2->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("enemy2_down3.png"));
         animation2->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("enemy2_down4.png"));
-        AnimationCache::getInstance()->addAnimation(animation2, ENEMY1_DOWN);
+        AnimationCache::getInstance()->addAnimation(animation2, ENEMY2_DOWN);
         
         Animation *animation3 = Animation::create();
         animation3->setDelayPerUnit(0.1f);
@@ -69,7 +69,7 @@ bool EnemyLayer::init()
         animation3->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("enemy3_down4.png"));
         animation3->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("enemy3_down5.png"));
         animation3->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("enemy3_down6.png"));
-        AnimationCache::getInstance()->addAnimation(animation3, ENEMY1_DOWN);
+        AnimationCache::getInstance()->addAnimation(animation3, ENEMY3_DOWN);
         
         // add enemies
         this->schedule(schedule_selector(EnemyLayer::addEnemy1), 0.4f);
@@ -170,6 +170,24 @@ void EnemyLayer::enemy2MoveFinished(cocos2d::Node *sender)
     allEnemy2->removeObject(enemy2);
 }
 
+void EnemyLayer::enemy2Blowup(Enemy *enemy2)
+{
+    Animation *animation= AnimationCache::getInstance()->getAnimation(ENEMY2_DOWN);
+    Animate *animate = Animate::create(animation);
+    FiniteTimeAction *actionDone = CCCallFuncN::create(this, callfuncN_selector(EnemyLayer::removeEnemy2));
+    Sequence *sequence = Sequence::create(animate, actionDone, NULL);
+    enemy2->getSprite()->runAction(sequence);
+}
+
+void EnemyLayer::removeEnemy2(cocos2d::Node *sender)
+{
+    Enemy *enemy2 = (Enemy *) sender;
+    if (enemy2 != NULL) {
+        enemy2->removeFromParent();
+        allEnemy2->removeObject(enemy2);
+    }
+}
+
 
 void EnemyLayer::addEnemy3(float dt)
 {
@@ -208,6 +226,23 @@ void EnemyLayer::enemy3MoveFinished(cocos2d::Node *sender)
     allEnemy3->removeObject(enemy3);
 }
 
+void EnemyLayer::enemy3Blowup(Enemy *enemy3)
+{
+    Animation *animation= AnimationCache::getInstance()->getAnimation(ENEMY3_DOWN);
+    Animate *animate = Animate::create(animation);
+    FiniteTimeAction *actionDone = CCCallFuncN::create(this, callfuncN_selector(EnemyLayer::removeEnemy3));
+    Sequence *sequence = Sequence::create(animate, actionDone, NULL);
+    enemy3->getSprite()->runAction(sequence);
+}
+
+void EnemyLayer::removeEnemy3(cocos2d::Node *sender)
+{
+    Enemy *enemy3 = (Enemy *) sender;
+    if (enemy3 != NULL) {
+        enemy3->removeFromParent();
+        allEnemy2->removeObject(enemy3);
+    }
+}
 
 
 

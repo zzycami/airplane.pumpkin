@@ -85,6 +85,45 @@ void GameLayer::onTouchesMoved(const std::vector<Touch*>& touches, Event *unused
     }
 }
 
+void GameLayer::update(float delta)
+{
+    Array *bulletsToDelete = Array::create();
+    bulletsToDelete->retain();
+    Object *bt;
+    
+    // enemy1 & bullet collision
+    CCARRAY_FOREACH(bulletLayer->allBullet, bt){
+        Sprite *bullet = (Sprite *)bt;
+        
+        Object *en;
+        Array *enemyToDelete = Array::create();
+        enemyToDelete->retain();
+        CCARRAY_FOREACH(enemyLayer->allEnemy1, en){
+            Enemy* enemy1 = (Enemy*)en;
+            if (bullet->boundingBox().intersectsRect(enemy1->getBoundingBox())) {
+                if (enemy1->getLife() == 1) {
+                    enemy1->loseLife();
+                    bulletsToDelete->addObject(bullet);
+                    enemyToDelete->addObject(enemy1);
+                }
+            }
+        }
+        
+        CCARRAY_FOREACH(enemyToDelete, en){
+            Enemy *enemy1 = (Enemy*) en;
+            enemyLayer->enemy1Blowup(enemy1);
+        }
+        enemyToDelete->release();
+    }
+    
+    CCARRAY_FOREACH(bulletsToDelete, bt){
+        Sprite *bullet = (Sprite *)bt;
+        bulletLayer->removeBullet(bullet);
+    }
+    bulletsToDelete->removeAllObjects();
+    
+    bulletsToDelete->release();
+}
 
 
 

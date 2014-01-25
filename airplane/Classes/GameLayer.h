@@ -15,6 +15,7 @@ public:
 	bool virtual init();
     void virtual onTouchesMoved(const std::vector<Touch*>& touches, Event *unused_event);
 	void moveBackground(float dt);
+    void update(float delta);
 
 private:
 	Sprite *background1;

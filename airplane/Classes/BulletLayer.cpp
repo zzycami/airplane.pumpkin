@@ -29,7 +29,7 @@ bool BulletLayer::init()
 
 void BulletLayer::startShoot(float delay)
 {
-    this->schedule(schedule_selector(BulletLayer::addBullet), 0.2f, kRepeatForever, delay);
+    this->schedule(schedule_selector(BulletLayer::addBullet), 0.1f, kRepeatForever, delay);
 }
 
 void BulletLayer::stopShoot()
