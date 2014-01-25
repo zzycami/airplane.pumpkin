@@ -48,6 +48,8 @@ bool GameLayer::init()
         dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
 		this->schedule(schedule_selector(GameLayer::moveBackground), 0.01f);
+        
+        this->scheduleUpdate();
 		return true;
 	}
 	return false;
