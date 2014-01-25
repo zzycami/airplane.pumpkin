@@ -126,14 +126,14 @@ void EnemyLayer::enemy1Blowup(Enemy *enemy1)
 {
     Animation *animation = AnimationCache::getInstance()->getAnimation(ENEMY1_DOWN);
     Animate *animate = Animate::create(animation);
-    FiniteTimeAction *actionDone = CCCallFuncN::create(this, callfuncN_selector(EnemyLayer::removeEnemy1));
+	CCCallFuncND *actionDone = CCCallFuncND::create(this, callfuncND_selector(EnemyLayer::removeEnemy1), enemy1);
     Sequence *sequence = Sequence::create(animate, actionDone, NULL);
     enemy1->getSprite()->runAction(sequence);
 }
 
-void EnemyLayer::removeEnemy1(cocos2d::Node *sender)
+void EnemyLayer::removeEnemy1(cocos2d::Node *target, void* data)
 {
-    Enemy *enemy1 = (Enemy *) sender;
+    Enemy *enemy1 = (Enemy *) data;
     if (enemy1 != NULL) {
         enemy1->removeFromParent();
         allEnemy1->removeObject(enemy1);
@@ -174,14 +174,14 @@ void EnemyLayer::enemy2Blowup(Enemy *enemy2)
 {
     Animation *animation= AnimationCache::getInstance()->getAnimation(ENEMY2_DOWN);
     Animate *animate = Animate::create(animation);
-    FiniteTimeAction *actionDone = CCCallFuncN::create(this, callfuncN_selector(EnemyLayer::removeEnemy2));
+	FiniteTimeAction *actionDone = CCCallFuncND::create(this, callfuncND_selector(EnemyLayer::removeEnemy2), enemy2);
     Sequence *sequence = Sequence::create(animate, actionDone, NULL);
     enemy2->getSprite()->runAction(sequence);
 }
 
-void EnemyLayer::removeEnemy2(cocos2d::Node *sender)
+void EnemyLayer::removeEnemy2(cocos2d::Node *target, void* data)
 {
-    Enemy *enemy2 = (Enemy *) sender;
+    Enemy *enemy2 = (Enemy *) data;
     if (enemy2 != NULL) {
         enemy2->removeFromParent();
         allEnemy2->removeObject(enemy2);
@@ -230,14 +230,14 @@ void EnemyLayer::enemy3Blowup(Enemy *enemy3)
 {
     Animation *animation= AnimationCache::getInstance()->getAnimation(ENEMY3_DOWN);
     Animate *animate = Animate::create(animation);
-    FiniteTimeAction *actionDone = CCCallFuncN::create(this, callfuncN_selector(EnemyLayer::removeEnemy3));
+	FiniteTimeAction *actionDone = CCCallFuncND::create(this, callfuncND_selector(EnemyLayer::removeEnemy3), enemy3);
     Sequence *sequence = Sequence::create(animate, actionDone, NULL);
     enemy3->getSprite()->runAction(sequence);
 }
 
-void EnemyLayer::removeEnemy3(cocos2d::Node *sender)
+void EnemyLayer::removeEnemy3(cocos2d::Node *target, void* data)
 {
-    Enemy *enemy3 = (Enemy *) sender;
+    Enemy *enemy3 = (Enemy *) data;
     if (enemy3 != NULL) {
         enemy3->removeFromParent();
         allEnemy2->removeObject(enemy3);

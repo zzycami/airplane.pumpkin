@@ -31,20 +31,20 @@ public:
     
     void addEnemy1(float dt);
     void enemy1MoveFinished(Node *sender);
-    void removeEnemy1(Node *sender);
+    void removeEnemy1(Node *target, void* data);
     void enemy1Blowup(Enemy *enemy1);
     Array *allEnemy1;
     
     void addEnemy2(float dt);
     void enemy2MoveFinished(Node *sender);
     void enemy2Blowup(Enemy *enemy2);
-    void removeEnemy2(Node *sender);
+    void removeEnemy2(Node *target, void* data);
     Array *allEnemy2;
     
     void addEnemy3(float dt);
     void enemy3MoveFinished(Node *sender);
     void enemy3Blowup(Enemy *enemy3);
-    void removeEnemy3(Node *sender);
+    void removeEnemy3(Node *target, void* data);
     Array *allEnemy3;
     
 private:

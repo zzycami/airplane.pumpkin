@@ -98,6 +98,7 @@ void GameLayer::update(float delta)
         Object *en;
         Array *enemyToDelete = Array::create();
         enemyToDelete->retain();
+		int count = enemyLayer->allEnemy1->count();
         CCARRAY_FOREACH(enemyLayer->allEnemy1, en){
             Enemy* enemy1 = (Enemy*)en;
             if (bullet->boundingBox().intersectsRect(enemy1->getBoundingBox())) {

@@ -48,7 +48,7 @@ void Enemy::loseLife()
 
 
 Rect Enemy::getBoundingBox(){
-    Rect rect = this->sprite->getBoundingBox();
+	Rect rect = this->sprite->getBoundingBox();
     Point point = this->convertToWorldSpace(rect.origin);
     return Rect(point.x, point.y, rect.size.width, rect.size.height);
 }
