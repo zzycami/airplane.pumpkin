@@ -17,7 +17,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto eglView = EGLView::getInstance();
 
     director->setOpenGLView(eglView);
-	eglView->setDesignResolutionSize(480, 800, ResolutionPolicy::EXACT_FIT);
+	eglView->setDesignResolutionSize(480*0.8, 800*0.8, ResolutionPolicy::EXACT_FIT);
     
     // set resource load resolution
     setResourceSearchResolution();

@@ -232,6 +232,7 @@ void EnemyLayer::enemy3Blowup(Enemy *enemy3)
     Animate *animate = Animate::create(animation);
 	FiniteTimeAction *actionDone = CCCallFuncND::create(this, callfuncND_selector(EnemyLayer::removeEnemy3), enemy3);
     Sequence *sequence = Sequence::create(animate, actionDone, NULL);
+	enemy3->getSprite()->stopAllActions();
     enemy3->getSprite()->runAction(sequence);
 }
 
@@ -239,6 +240,7 @@ void EnemyLayer::removeEnemy3(cocos2d::Node *target, void* data)
 {
     Enemy *enemy3 = (Enemy *) data;
     if (enemy3 != NULL) {
+		enemy3->stopAllActions();
         enemy3->removeFromParent();
         allEnemy2->removeObject(enemy3);
     }

@@ -116,13 +116,73 @@ void GameLayer::update(float delta)
         }
         enemyToDelete->release();
     }
+
+	// enemy2 & bullet collision
+	CCARRAY_FOREACH(bulletLayer->allBullet, bt){
+		Sprite *bullet = (Sprite *)bt;
+
+		Object *en;
+		Array *enemyToDelete = Array::create();
+		enemyToDelete->retain();
+		CCARRAY_FOREACH(enemyLayer->allEnemy2, en){
+			Enemy *enemy2 = (Enemy*)en;
+			if (bullet->getBoundingBox().intersectsRect(enemy2->getBoundingBox())){
+				if (enemy2->getLife() > 1){
+					enemy2->loseLife();
+					bulletsToDelete->addObject(bullet);
+				}else if (enemy2->getLife() == 1){
+					enemy2->loseLife();
+					bulletsToDelete->addObject(bullet);
+					enemyToDelete->addObject(enemy2);
+				}
+			}
+		}
+
+		CCARRAY_FOREACH(enemyToDelete, en){
+            Enemy *enemy2 = (Enemy*) en;
+            enemyLayer->enemy2Blowup(enemy2);
+        }
+
+		enemyToDelete->release();
+		enemyToDelete = NULL;
+	}
+
+
+	// enemy3 & bullet collision
+	CCARRAY_FOREACH(bulletLayer->allBullet, bt){
+		Sprite *bullet = (Sprite *)bt;
+
+		Object *en;
+		Array *enemyToDelete = Array::create();
+		enemyToDelete->retain();
+		CCARRAY_FOREACH(enemyLayer->allEnemy3, en){
+			Enemy *enemy3 = (Enemy*)en;
+			if (bullet->getBoundingBox().intersectsRect(enemy3->getBoundingBox())){
+				if (enemy3->getLife() > 1){
+					enemy3->loseLife();
+					bulletsToDelete->addObject(bullet);
+				}else if (enemy3->getLife() == 1){
+					enemy3->loseLife();
+					bulletsToDelete->addObject(bullet);
+					enemyToDelete->addObject(enemy3);
+				}
+			}
+		}
+
+		CCARRAY_FOREACH(enemyToDelete, en){
+            Enemy *enemy3 = (Enemy*) en;
+            enemyLayer->enemy3Blowup(enemy3);
+        }
+
+		enemyToDelete->release();
+		enemyToDelete = NULL;
+	}
     
     CCARRAY_FOREACH(bulletsToDelete, bt){
         Sprite *bullet = (Sprite *)bt;
         bulletLayer->removeBullet(bullet);
     }
     bulletsToDelete->removeAllObjects();
-    
     bulletsToDelete->release();
 }
 
